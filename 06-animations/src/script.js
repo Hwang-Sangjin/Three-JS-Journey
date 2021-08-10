@@ -55,13 +55,13 @@ function right(){
     console.log("pressed");
    if(e.keyCode === 39){
        //right
-        gsap.to(mesh.position, { duration: 1, delay: 0, x: 1 })
+        gsap.to(mesh.position, { duration: 1, delay: 0, x: 2 })
         gsap.to(mesh.position, { duration: 1, delay: 1, x: 0 })
         tick()
    }
    else if(e.keyCode === 37){
        //left
-       gsap.to(mesh.position, { duration: 1, delay: 0, x: -1 })
+       gsap.to(mesh.position, { duration: 1, delay: 0, x: -2 })
        gsap.to(mesh.position, { duration: 1, delay: 1, x: 0 })
        tick()
    }
