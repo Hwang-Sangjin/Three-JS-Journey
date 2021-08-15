@@ -43,7 +43,6 @@ const tick = () =>
     window.requestAnimationFrame(tick)
 }
 
-
 /**
  * Animate
  */
