@@ -29,7 +29,7 @@ gltfLoader.setDRACOLoader(dracoLoader)
 let mixer = null
 
 gltfLoader.load(
-    '/models/gym_out/gym.gltf',
+    '/models/scene.glb',
     (gltf) =>
     {
         gltf.scene.scale.set(0.025, 0.025, 0.025)
