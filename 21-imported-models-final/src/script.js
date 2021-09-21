@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+import {FBXLoader} from "three/examples/jsm/loaders/FBXLoader";
 
 /**
  * Base
@@ -28,19 +29,27 @@ gltfLoader.setDRACOLoader(dracoLoader)
 
 let mixer = null
 
-gltfLoader.load(
-    '/models/gym2_out/gym2.gltf',
-    (gltf) =>
+const fbxLoader = new FBXLoader()
+fbxLoader.load(
+    '/models/gym.FBX',
+    (fbx) =>
     {
-        gltf.scene.scale.set(10, 10, 10)
-        scene.add(gltf.scene)
-
-         Animation
-         mixer = new THREE.AnimationMixer(gltf.scene)
-         const action = mixer.clipAction(gltf.animations[2])
-         action.play()
+        //fbx.scale()
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
     }
 )
+// fbxLoader.load(
+//     '/models/Male_Idle.fbx',
+//     (fbx) =>
+//     {
+//         //fbx.scale()
+//         //fbx.scale.set(0.2, 0.2, 0.2)
+//         scene.add(fbx)
+//     }
+// )
+
+
 
 /**
  * Floor
