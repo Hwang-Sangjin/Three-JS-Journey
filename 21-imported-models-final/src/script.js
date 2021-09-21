@@ -39,15 +39,26 @@ fbxLoader.load(
         scene.add(fbx)
     }
 )
-// fbxLoader.load(
-//     '/models/Male_Idle.fbx',
-//     (fbx) =>
-//     {
-//         //fbx.scale()
-//         //fbx.scale.set(0.2, 0.2, 0.2)
-//         scene.add(fbx)
-//     }
-// )
+fbxLoader.load(
+    '/models/Male/Male.fbx',
+    (fbx) =>
+    {
+        //fbx.scale()
+        fbx.position.set(0,0.04,3)
+        fbx.scale.set(0.1, 0.1, 0.1)
+        scene.add(fbx)
+    }
+)
+fbxLoader.load(
+    '/models/Female/Female.fbx',
+    (fbx) =>
+    {
+        //fbx.scale()
+        fbx.position.set(1,0.37,3)
+        fbx.scale.set(0.1, 0.1, 0.1)
+        scene.add(fbx)
+    }
+)
 
 
 
