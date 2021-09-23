@@ -31,10 +31,11 @@ let mixer = null
 
 const fbxLoader = new FBXLoader()
 fbxLoader.load(
-    '/models/gym.FBX',
+    '/models/gym(no_wall).FBX',
     (fbx) =>
     {
         //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
         fbx.scale.set(0.2, 0.2, 0.2)
         scene.add(fbx)
     }
@@ -92,7 +93,7 @@ directionalLight.shadow.camera.top = 7
 directionalLight.shadow.camera.right = 7
 directionalLight.shadow.camera.bottom = - 7
 directionalLight.position.set(- 5, 5, 0)
-scene.add(directionalLight)
+//scene.add(directionalLight)
 
 /**
  * Sizes
