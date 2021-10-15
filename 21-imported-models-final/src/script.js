@@ -2,9 +2,12 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import {FBXLoader} from "three/examples/jsm/loaders/FBXLoader";
+
+/**
+ * Material
+ */
+const material = new THREE.MeshBasicMaterial()
 
 /**
  * Base
@@ -19,21 +22,35 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 /**
+ * Control Keys
+ */
+ const keysPressed = {  }
+
+ document.addEventListener('keydown', (event) => {
+     console.log(event)
+     if (event.shiftKey && characterControls) {
+         characterControls.switchRunToggle()
+     } else {
+         (keysPressed)[event.key.toLowerCase()] = true
+     }
+ }, false);
+ document.addEventListener('keyup', (event) => {
+     (keysPressed)[event.key.toLowerCase()] = false
+ }, false);
+
+
+/**
  * Models
  */
-const dracoLoader = new DRACOLoader()
-dracoLoader.setDecoderPath('/draco/')
-
-const gltfLoader = new GLTFLoader()
-gltfLoader.setDRACOLoader(dracoLoader)
 
 let mixer = null
 
 const fbxLoader = new FBXLoader()
 fbxLoader.load(
-    '/models/gym(no_wall).FBX',
+    '/models/gym/gym(no_wall).FBX',
     (fbx) =>
     {
+        fbx.material = new THREE.MeshToonMaterial()
         //fbx.scale()
         fbx.position.set(-0.5,0.01,-2)
         fbx.scale.set(0.2, 0.2, 0.2)
@@ -44,9 +61,9 @@ fbxLoader.load(
     '/models/Male/Male.fbx',
     (fbx) =>
     {
-        //fbx.scale()
-        fbx.position.set(0,0.04,3)
-        fbx.scale.set(0.1, 0.1, 0.1)
+        fbx.position.set(0,0.01,3)
+        fbx.scale.set(0.1, 0.1, 0.1) 
+
         scene.add(fbx)
     }
 )
@@ -55,7 +72,7 @@ fbxLoader.load(
     (fbx) =>
     {
         //fbx.scale()
-        fbx.position.set(1,0.37,3)
+        fbx.position.set(1,0.01,3)
         fbx.scale.set(0.1, 0.1, 0.1)
         scene.add(fbx)
     }
@@ -83,17 +100,6 @@ scene.add(floor)
  */
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
 scene.add(ambientLight)
-
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6)
-directionalLight.castShadow = true
-directionalLight.shadow.mapSize.set(1024, 1024)
-directionalLight.shadow.camera.far = 15
-directionalLight.shadow.camera.left = - 7
-directionalLight.shadow.camera.top = 7
-directionalLight.shadow.camera.right = 7
-directionalLight.shadow.camera.bottom = - 7
-directionalLight.position.set(- 5, 5, 0)
-scene.add(directionalLight)
 
 /**
  * Sizes
