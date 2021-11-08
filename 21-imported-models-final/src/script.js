@@ -64,9 +64,8 @@ const scene = new THREE.Scene()
  const legmachine_01Texture = textureLoader.load('models/gym/texture/legmachine_01.jpg')
  const legmachine_02Texture = textureLoader.load('models/gym/texture/legmachine_02.jpg')
  const legmachine_03Texture = textureLoader.load('models/gym/texture/legmachine_03.jpg')
- //const pillarTexture = textureLoader.load('models/gym/texture/pillar.jpg')
  const posterTexture = textureLoader.load('models/gym/texture/poster.jpg')
- const rocksTexture = textureLoader.load('models/gym/texture/rocks.jpg')
+ const rocksTexture = textureLoader.load('models/gym/texture/rock.jpg')
  const runningmachineTexture = textureLoader.load('models/gym/texture/running.jpg')
 
  const shouldermachine_01Texture = textureLoader.load('models/gym/texture/shouldermachine_01.jpg')
@@ -111,7 +110,7 @@ fbxLoader.load(
         scene.add(fbx)
     }
 )
-//바이크 바닥
+//바이크
 fbxLoader.load(
     '/models/gym/export/bike.FBX',
     (fbx) =>
@@ -126,7 +125,7 @@ fbxLoader.load(
         scene.add(fbx)
     }
 )
-//바이크타이어 바닥
+//바이크타이어
 fbxLoader.load(
     '/models/gym/export/bike_tire.FBX',
     (fbx) =>
@@ -145,18 +144,453 @@ fbxLoader.load(
         scene.add(fbx)
     }
 )
-//바이크타이어 바닥
+//부쉬
 fbxLoader.load(
     '/models/gym/export/bush.FBX',
     (fbx) =>
     {
-        console.log(fbx)
+        //console.log(fbx)
         const bakedMaterial = new THREE.MeshBasicMaterial({map: bushTexture})
         fbx.children[0].material = bakedMaterial
         fbx.children[1].material = bakedMaterial
         fbx.children[2].material = bakedMaterial
         fbx.children[3].material = bakedMaterial
         fbx.children[4].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//시계 
+fbxLoader.load(
+    '/models/gym/export/clock.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: clockTexture})
+        fbx.children[0].material = bakedMaterial
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//데코 요소들(시간, 이름 등등)
+fbxLoader.load(
+    '/models/gym/export/deco.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: decoTexture})
+        fbx.children[0].material = bakedMaterial
+        fbx.children[1].material = bakedMaterial
+        fbx.children[2].material = bakedMaterial
+        fbx.children[3].material = bakedMaterial
+        fbx.children[4].material = bakedMaterial
+        fbx.children[5].material = bakedMaterial
+        fbx.children[6].material = bakedMaterial
+
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//덤벨1
+fbxLoader.load(
+    '/models/gym/export/dumbbell01.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: dumbbell01Texture})
+        fbx.children[0].material = bakedMaterial
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//덤벨2
+fbxLoader.load(
+    '/models/gym/export/dumbbell02.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: dumbbell02Texture})
+        fbx.children[0].material = bakedMaterial
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//창문
+fbxLoader.load(
+    '/models/gym/export/window.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: glassTexture})
+        fbx.children[0].material = bakedMaterial
+        fbx.children[1].material = bakedMaterial
+        fbx.children[2].material = bakedMaterial
+        fbx.children[3].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//leg machine1
+fbxLoader.load(
+    '/models/gym/export/legmachine_01.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: legmachine_01Texture})
+        fbx.children[0].material = bakedMaterial
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//leg machine2
+fbxLoader.load(
+    '/models/gym/export/legmachine_02.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: legmachine_02Texture})
+        fbx.children[0].material = bakedMaterial
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//leg machine3
+fbxLoader.load(
+    '/models/gym/export/legmachine_03.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: legmachine_03Texture})
+        fbx.children[0].material = bakedMaterial
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//Poster
+fbxLoader.load(
+    '/models/gym/export/poster.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: posterTexture})
+        fbx.children[0].material = bakedMaterial
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//Rock
+fbxLoader.load(
+    '/models/gym/export/rocks.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: rocksTexture})
+        fbx.children[0].material = bakedMaterial
+        fbx.children[1].material = bakedMaterial
+        fbx.children[2].material = bakedMaterial
+        fbx.children[3].material = bakedMaterial
+        fbx.children[4].material = bakedMaterial
+        fbx.children[5].material = bakedMaterial
+        fbx.children[6].material = bakedMaterial
+        fbx.children[7].material = bakedMaterial
+
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//Running Machine1
+fbxLoader.load(
+    '/models/gym/export/runningmachine01.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: runningmachineTexture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//Running Machine2
+fbxLoader.load(
+    '/models/gym/export/runningmachine02.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: runningmachineTexture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//shouldermachine_01
+fbxLoader.load(
+    '/models/gym/export/shouldermachine_01.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: shouldermachine_01Texture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//shouldermachine_02
+fbxLoader.load(
+    '/models/gym/export/shouldermachine_02.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: shouldermachine_02Texture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//shouldermachine_03
+fbxLoader.load(
+    '/models/gym/export/shouldermachine_03.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: shouldermachine_03Texture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//shouldermachine_04
+fbxLoader.load(
+    '/models/gym/export/shouldermachine_04.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: shouldermachine_04Texture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//Tree
+fbxLoader.load(
+    '/models/gym/export/tree01.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: treeTexture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+fbxLoader.load(
+    '/models/gym/export/tree02.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: treeTexture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+fbxLoader.load(
+    '/models/gym/export/tree03.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: treeTexture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+fbxLoader.load(
+    '/models/gym/export/tree04.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: treeTexture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+fbxLoader.load(
+    '/models/gym/export/tree05.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: treeTexture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+fbxLoader.load(
+    '/models/gym/export/tree06.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: treeTexture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+fbxLoader.load(
+    '/models/gym/export/tree07.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: treeTexture})
+        fbx.children[0].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//wall_front
+fbxLoader.load(
+    '/models/gym/export/wall_front.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: wall_frontTexture})
+        fbx.children[0].material = bakedMaterial
+        fbx.children[1].material = bakedMaterial
+        fbx.children[2].material = bakedMaterial
+        fbx.children[3].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//wall_LR
+fbxLoader.load(
+    '/models/gym/export/wall_LR.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: wall_LRTexture})
+        fbx.children[0].material = bakedMaterial
+        fbx.children[1].material = bakedMaterial
+        fbx.children[2].material = bakedMaterial
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//pillar
+fbxLoader.load(
+    '/models/gym/export/pillar.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({color: 0xffffff})
+        fbx.children[0].material = bakedMaterial
+        fbx.children[1].material = bakedMaterial
+        fbx.children[2].material = bakedMaterial
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//water_machine
+fbxLoader.load(
+    '/models/gym/export/water_machine.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: water_machineTexture})
+        fbx.children[0].material = bakedMaterial
+
 
         //fbx.scale()
         fbx.position.set(-0.5,0.01,-2)
