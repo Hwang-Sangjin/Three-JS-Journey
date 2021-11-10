@@ -603,14 +603,17 @@ fbxLoader.load(
     '/models/Male/Male.fbx',
     (fbx) =>
     {
+        //console.log(fbx)
         fbx.position.set(0,0.01,3)
         fbx.scale.set(0.1, 0.1, 0.1) 
-
+        
         scene.add(fbx)
     }
 )
+
+
 fbxLoader.load(
-    '/models/Female/Female.fbx',
+    '/models/Male/Male_Idle.fbx',
     (fbx) =>
     {
         //fbx.scale()
