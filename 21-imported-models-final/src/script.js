@@ -656,7 +656,6 @@ fbxLoader.load(
         //console.log(fbx)
         fbx.position.set(0,0.01,3)
         fbx.scale.set(0.1, 0.1, 0.1) 
-<<<<<<< HEAD
 
         const anim = new FBXLoader()
         anim.load(
@@ -668,9 +667,7 @@ fbxLoader.load(
             }
         )
 
-=======
-        
->>>>>>> d929e625c75701eba93a575edffda72458996a5d
+
         scene.add(fbx)
     }
 )
