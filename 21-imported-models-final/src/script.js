@@ -51,6 +51,7 @@ const scene = new THREE.Scene()
 
  const textureLoader = new THREE.TextureLoader()
 
+ const floorTexture = textureLoader.load('models/gym/texture/floor.jpg')
  const floor02Texture = textureLoader.load('models/gym/texture/floor02.jpg')
  const groundTexture = textureLoader.load('models/gym/texture/ground.jpg')
  const bikeTexture = textureLoader.load('models/gym/texture/bike.jpg')
@@ -79,9 +80,26 @@ const scene = new THREE.Scene()
  const water_machineTexture = textureLoader.load('models/gym/texture/water.jpg')
  const windowTexture = textureLoader.load('models/gym/texture/glass(opacity).jpg')
 
+ const armmachine_01Texture = textureLoader.load('models/gym/texture/armmachine_01.jpg')
+ const armmachine_02Texture = textureLoader.load('models/gym/texture/armmachine_02.jpg')
 
 
 const fbxLoader = new FBXLoader()
+//초록색 바닥
+fbxLoader.load(
+    '/models/gym/export/floor.FBX',
+    (fbx) =>
+    {
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: floorTexture})
+        fbx.children[0].material = bakedMaterial
+        // fbx.scene.traverse((child)=>{
+        //     child.material = bakedMaterial
+        // })
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
 //초록색 바닥
 fbxLoader.load(
     '/models/gym/export/floor02.FBX',
@@ -240,7 +258,7 @@ fbxLoader.load(
     (fbx) =>
     {
         //console.log(fbx)
-        const bakedMaterial = new THREE.MeshBasicMaterial({map: glassTexture})
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: windowTexture})
         fbx.children[0].material = bakedMaterial
         fbx.children[1].material = bakedMaterial
         fbx.children[2].material = bakedMaterial
@@ -598,6 +616,38 @@ fbxLoader.load(
         scene.add(fbx)
     }
 )
+//water_machine
+fbxLoader.load(
+    '/models/gym/export/armmachine_01.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: armmachine_01Texture})
+        fbx.children[0].material = bakedMaterial
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
+//water_machine
+fbxLoader.load(
+    '/models/gym/export/armmachine_02.FBX',
+    (fbx) =>
+    {
+        //console.log(fbx)
+        const bakedMaterial = new THREE.MeshBasicMaterial({map: armmachine_02Texture})
+        fbx.children[0].material = bakedMaterial
+
+
+        //fbx.scale()
+        fbx.position.set(-0.5,0.01,-2)
+        fbx.scale.set(0.2, 0.2, 0.2)
+        scene.add(fbx)
+    }
+)
 
 fbxLoader.load(
     '/models/Male/Male.fbx',
@@ -605,6 +655,16 @@ fbxLoader.load(
     {
         fbx.position.set(0,0.01,3)
         fbx.scale.set(0.1, 0.1, 0.1) 
+
+        const anim = new FBXLoader()
+        anim.load(
+            '/models/Male/Breathing.fbx',
+            (anim) => {
+                const idle = anim.animations[0]
+                console
+                idle.play()
+            }
+        )
 
         scene.add(fbx)
     }
