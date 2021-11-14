@@ -657,15 +657,7 @@ fbxLoader.load(
         fbx.position.set(0,0.01,3)
         fbx.scale.set(0.1, 0.1, 0.1) 
 
-        const anim = new FBXLoader()
-        anim.load(
-            '/models/Male/Breathing.fbx',
-            (anim) => {
-                const idle = anim.animations[0]
-                console
-                idle.play()
-            }
-        )
+        
 
 
         scene.add(fbx)
